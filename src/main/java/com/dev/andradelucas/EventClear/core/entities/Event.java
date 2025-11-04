@@ -1,6 +1,6 @@
 package com.dev.andradelucas.EventClear.core.entities;
 
-import com.dev.andradelucas.EventClear.core.enums.TypeEvent;
+import com.dev.andradelucas.EventClear.core.enums.EventType;
 
 import java.time.LocalDateTime;
 
@@ -14,5 +14,5 @@ public record Event(
         String location,
         Integer capacity,
         String organizer,
-        TypeEvent type
+        EventType type
 ) {}

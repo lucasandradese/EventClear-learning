@@ -1,6 +1,6 @@
 package com.dev.andradelucas.EventClear.core.enums;
 
-public enum TypeEvent {
+public enum EventType {
     CONCRESSO,
     WORKSHOP,
     PALESTRA,
