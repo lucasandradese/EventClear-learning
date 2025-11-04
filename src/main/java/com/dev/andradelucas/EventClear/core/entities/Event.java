@@ -10,7 +10,7 @@ public record Event(
         String description,
         String identifier,
         LocalDateTime dataStart,
-        String dataEnd,
+        LocalDateTime dataEnd,
         String location,
         Integer capacity,
         String organizer,

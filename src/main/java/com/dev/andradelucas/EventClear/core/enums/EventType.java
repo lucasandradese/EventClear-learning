@@ -6,6 +6,4 @@ public enum EventType {
     PALESTRA,
     SHOW,
     SEMINÁRIO;
-
-
 }

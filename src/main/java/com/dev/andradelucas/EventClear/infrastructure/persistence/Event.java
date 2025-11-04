@@ -21,9 +21,10 @@ public class Event {
     private String description;
     private String identifier;
     private LocalDateTime dataStart;
-    private String dataEnd;
+    private LocalDateTime dataEnd;
     private String location;
     private Integer capacity;
     private String organizer;
+    @Enumerated(EnumType.STRING)
     private EventType type;
 }
