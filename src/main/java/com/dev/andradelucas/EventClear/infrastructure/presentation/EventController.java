@@ -1,10 +1,9 @@
 package com.dev.andradelucas.EventClear.infrastructure.presentation;
 
 import com.dev.andradelucas.EventClear.core.entities.Event;
-import com.dev.andradelucas.EventClear.core.usecases.CreateEventCaseImpl;
+import com.dev.andradelucas.EventClear.core.usecases.CreateEventCase;
 import com.dev.andradelucas.EventClear.infrastructure.dtos.EventDto;
 import com.dev.andradelucas.EventClear.infrastructure.mapper.EventDtoMapper;
-import com.dev.andradelucas.EventClear.infrastructure.persistence.EventRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,10 +12,10 @@ import java.util.List;
 @RequestMapping("/api/event/v1/")
 public class EventController {
 
-    private final CreateEventCaseImpl createEventCase;
+    private final CreateEventCase createEventCase;
     private final EventDtoMapper eventDtoMapper;
 
-    public EventController(CreateEventCaseImpl createEventCase, EventDtoMapper eventDtoMapper) {
+    public EventController(CreateEventCase createEventCase, EventDtoMapper eventDtoMapper) {
         this.createEventCase = createEventCase;
         this.eventDtoMapper = eventDtoMapper;
     }
