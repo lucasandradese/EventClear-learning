@@ -10,5 +10,5 @@ CREATE TABLE event_tb (
         location VARCHAR(255) NOT NULL,
         capacity INTEGER NOT NULL,
         organizer VARCHAR(255) NOT NULL,
-        Event_type VARCHAR(50) NOT NULL
+        type VARCHAR(50) NOT NULL
 )
