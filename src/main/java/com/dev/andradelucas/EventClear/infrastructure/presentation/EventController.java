@@ -32,8 +32,8 @@ public class EventController {
     public ResponseEntity<Map<String, Object>> createEvent(@RequestBody EventDto eventDto){
         Event newEvent = createEventCase.execute(eventDtoMapper.toEntity(eventDto));
         Map<String, Object> response = new HashMap<>();
-        response.put("mensage: ", "Event registration success in the database.");
-        response.put("ewrredata: ", eventDtoMapper.toDto(newEvent));
+        response.put("message: ", "Event registration success in the database.");
+        response.put("data: ", eventDtoMapper.toDto(newEvent));
         return ResponseEntity.ok(response);
     }
 

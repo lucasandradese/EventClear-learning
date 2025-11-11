@@ -5,4 +5,5 @@ import java.util.List;
 public interface EventGateway {
     Event createEvent(Event event);
     List<Event> seachEvent();
+    boolean existIdentifier(String identifier);
 }
