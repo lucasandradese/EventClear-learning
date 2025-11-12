@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component
@@ -36,5 +37,10 @@ public class EventRepositoryGateway implements EventGateway {
     public boolean existIdentifier(String identifier) {
         return eventRepository.findAll().stream()
                 .anyMatch(event -> event.getIdentifier().equalsIgnoreCase(identifier));
+    }
+
+    @Override
+    public Optional<Event> filterByIdentifier(String identifier) {
+        return eventRepository.findByIdentifier(identifier);
     }
 }

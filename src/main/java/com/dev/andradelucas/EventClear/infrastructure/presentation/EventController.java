@@ -2,6 +2,7 @@ package com.dev.andradelucas.EventClear.infrastructure.presentation;
 
 import com.dev.andradelucas.EventClear.core.entities.Event;
 import com.dev.andradelucas.EventClear.core.usecases.CreateEventCase;
+import com.dev.andradelucas.EventClear.core.usecases.FilterByIdentifierCase;
 import com.dev.andradelucas.EventClear.core.usecases.SearchEventCase;
 import com.dev.andradelucas.EventClear.infrastructure.dtos.EventDto;
 import com.dev.andradelucas.EventClear.infrastructure.mapper.EventDtoMapper;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -20,12 +22,13 @@ public class EventController {
     private final CreateEventCase createEventCase;
     private final EventDtoMapper eventDtoMapper;
     private final SearchEventCase searchEventCase;
+    private final FilterByIdentifierCase filterByIdentifierCase;
 
-    public EventController(CreateEventCase createEventCase, EventDtoMapper eventDtoMapper,
-                           SearchEventCase searchEventCase) {
+    public EventController(CreateEventCase createEventCase, EventDtoMapper eventDtoMapper, SearchEventCase searchEventCase, FilterByIdentifierCase filterByIdentifierCase) {
         this.createEventCase = createEventCase;
         this.eventDtoMapper = eventDtoMapper;
         this.searchEventCase = searchEventCase;
+        this.filterByIdentifierCase = filterByIdentifierCase;
     }
 
     @PostMapping("create")
@@ -44,4 +47,9 @@ public class EventController {
                 .collect(Collectors.toList());
     }
 
+    @GetMapping("filter/{identifier}")
+    public ResponseEntity<Event> filterIdentifierEvent(@PathVariable String identifier){
+        Event event = filterByIdentifierCase.execute(identifier);
+        return ResponseEntity.ok(event);
+    }
 }

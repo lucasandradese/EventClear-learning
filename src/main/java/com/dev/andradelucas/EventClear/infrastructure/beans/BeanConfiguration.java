@@ -18,4 +18,9 @@ public class BeanConfiguration {
     public SearchEventCase searchEventCase(EventGateway eventGateway){
         return new SearchEventCaseImpl(eventGateway);
     }
+
+    @Bean
+    public FilterByIdentifierCase filterByIdentifierCase(EventGateway eventGateway){
+        return new FilterByIdentifierCaseImpl(eventGateway);
+    }
 }

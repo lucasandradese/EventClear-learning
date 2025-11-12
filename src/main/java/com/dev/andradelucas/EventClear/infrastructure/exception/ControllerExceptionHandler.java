@@ -15,7 +15,15 @@ public class ControllerExceptionHandler {
     public ResponseEntity<Map<String, String>> handlerDuplicateEventException(DuplicateEventException exception){
         Map<String, String> response = new HashMap<>();
         response.put("Error: ", exception.getMessage());
-        response.put("Message: ","Please,insert a valid hasdId for your event and try again.");
+        response.put("Message: ","Please, insert a valid hasdId for your event and try again.");
         return new ResponseEntity<>(response, HttpStatus.CONFLICT);
+    }
+
+    @ExceptionHandler(NotFountEventException.class)
+    public ResponseEntity<Map<String,String>> handlerNotFountEventException(NotFountEventException exception){
+        Map<String,String> response = new HashMap<>();
+        response.put("Error: ", exception.getMessage());
+        response.put("message", "Please, filter by identifier valid hasdId for your event and try again.");
+        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
     }
 }
