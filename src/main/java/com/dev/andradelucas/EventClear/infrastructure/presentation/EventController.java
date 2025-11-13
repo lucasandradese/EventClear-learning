@@ -46,10 +46,9 @@ public class EventController {
                 map(eventDtoMapper::toDto)
                 .collect(Collectors.toList());
     }
-
     @GetMapping("filter/{identifier}")
-    public ResponseEntity<Event> filterIdentifierEvent(@PathVariable String identifier){
+    public ResponseEntity<EventDto> filterIdentifierEvent(@PathVariable String identifier){
         Event event = filterByIdentifierCase.execute(identifier);
-        return ResponseEntity.ok(event);
+        return ResponseEntity.ok(eventDtoMapper.toDto(event));
     }
 }
